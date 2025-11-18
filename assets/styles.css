@@ -99,24 +99,36 @@ body {
   align-items: center;
 }
 
-/* Logo / header tweaks */
-.brand-link {
-  display: inline-block;
-  line-height: 1;
-}
-
-.site-logo {
-  display: block;
-  height: 48px;       /* strict header size */
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
-}
-
 /* tighter header spacing */
 .header-inner {
   align-items: center;
   gap: 18px;
+}
+
+/* Logo / header tweaks — strict desktop + responsive */
+.brand-link { display:inline-block; line-height:1; }
+
+.site-logo {
+  display: block;
+  height: 48px;        /* visual height in header on desktop */
+  max-height: 48px;    /* enforce same size */
+  width: auto;
+  max-width: 180px;    /* prevents very wide logos on laptop */
+  object-fit: contain;
+}
+
+/* Slightly larger header space if you want the logo a bit more presence */
+@media (min-width: 1200px) {
+  .site-logo { height: 56px; max-height:56px; max-width:220px; }
+}
+
+/* Mobile / small screens */
+@media (max-width: 900px) {
+  .site-logo { height: 40px; max-height:40px; max-width:160px; }
+}
+
+@media (max-width: 600px) {
+  .site-logo { height: 32px; max-height:32px; max-width:140px; }
 }
 
 /* smaller logo on narrow screens */
